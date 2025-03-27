@@ -6,6 +6,8 @@ const cookieparser = require('cookie-parser');
 
 
 const app = express();
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
 app.use(cors());
 app.use(cookieparser());
 
@@ -14,6 +16,10 @@ mongoose.connect('mongodb://localhost:27017/schoolManagemnt2025').then(db => {
     console.log('MongoDB is connected Successfully.');
 }).catch(e => {
     console.log('MongoDB error:', e);
+})
+
+app.get("/test", (req, res) => {
+    res.send({id:1, message:"Welcome, it is working"});
 })
 
 const PORT = process.env.PORT;
