@@ -5,7 +5,7 @@ const classSchema = new mongoose.Schema({
     class_text:{type:String, required:true},
     class_number:{type:Number, required:true},
     attendee:{type:mongoose.Schema.ObjectId, ref:'Teacher'},
-    createAt: {type:Date, default: new Date()}
+    createdAt: {type:Date, default: new Date()}
 
 })
 
